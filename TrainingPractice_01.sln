@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TDM_Task_Number_01", "TDM_T
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TDM_Task_Number_02", "TDM_Task_Number_02\TDM_Task_Number_02.csproj", "{D958A63D-E37E-4715-929B-56AE2C1E6D73}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TDM_Task_Number_03", "TDM_Task_Number_03\TDM_Task_Number_03.csproj", "{F70CE0B5-13C1-4650-B33C-61AE8E05BF94}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{D958A63D-E37E-4715-929B-56AE2C1E6D73}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D958A63D-E37E-4715-929B-56AE2C1E6D73}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D958A63D-E37E-4715-929B-56AE2C1E6D73}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F70CE0B5-13C1-4650-B33C-61AE8E05BF94}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F70CE0B5-13C1-4650-B33C-61AE8E05BF94}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F70CE0B5-13C1-4650-B33C-61AE8E05BF94}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F70CE0B5-13C1-4650-B33C-61AE8E05BF94}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -10,6 +10,7 @@ namespace TDM_Task_Number_01
     {
         static void Main(string[] args)
         {
+
         }
     }
 }

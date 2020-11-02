@@ -11,7 +11,12 @@ namespace TDM_Task_Number_01
         static void Main(string[] args)
         {
             System.Console.WriteLine("Enter amount of gold:");
-            int amount_of_gold = System.Convert.ToInt32(System.Console.ReadLine());
+
+            int amount_of_gold; // = System.Convert.ToInt32(System.Console.ReadLine());
+
+            bool isValidInt = int.TryParse(Console.ReadLine(), out amount_of_gold);
+
+
             int crystal_cost = 20;
             System.Console.WriteLine($"Crystal cost = {crystal_cost}");
 
@@ -25,7 +30,7 @@ namespace TDM_Task_Number_01
             else
                 System.Console.WriteLine($"You have {amount_of_gold} gold\nand {amount_of_crystals} crystals.");
 
-            System.Convert.ToInt32(System.Console.ReadLine());
+            System.Console.ReadLine();
         }
     }
 }

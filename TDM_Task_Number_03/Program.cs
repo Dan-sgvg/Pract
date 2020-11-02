@@ -23,7 +23,7 @@ namespace TDM_Task_Number_03
                 }
             } while (num_of_try != 3);
             if (num_of_try == 3)
-                Console.WriteLine("limit is exceeded!!");
+                Console.WriteLine("Лимит привышен!!");
 
             Console.ReadLine();
         }

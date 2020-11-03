@@ -122,10 +122,5 @@ namespace TDM_Task_Number_06
                 if (full_name[i] == search_name)
                     Console.WriteLine($"{i + 1}: человек по имени {full_name[i]} с должностью {post[i]}.");
         }
-
-        static void Delete()
-        {
-
-        }
     }
 }

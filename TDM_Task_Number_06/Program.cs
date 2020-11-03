@@ -8,6 +8,7 @@ namespace TDM_Task_Number_06
 {
     class Program
     {
+
         static void Main(string[] args)
         {
             int chose;
@@ -15,7 +16,6 @@ namespace TDM_Task_Number_06
 
             string[] post = new string[1] {""};
             string[] full_name = new string[1] {""};
-            string search_name;
             chose = 0;
             amount_of_files = 0;
 
@@ -39,27 +39,23 @@ namespace TDM_Task_Number_06
                     case 1:
                         {
                             amount_of_files ++;
-
-                            Array.Resize<string> (ref full_name, amount_of_files);
-                            Console.WriteLine("Введите имя:");
-                            full_name[amount_of_files-1] = Console.ReadLine();
-
+                            Array.Resize<string>(ref full_name, amount_of_files);
                             Array.Resize<string>(ref post, amount_of_files);
-                            Console.WriteLine("Введите должность:");
-                            post[amount_of_files-1] = Console.ReadLine();
+                            Enter(amount_of_files,full_name,post);
                             break;
                         }
                     case 2:
                         {
                             if (amount_of_files > 0)
                                 for (int i = 0; i < amount_of_files; i++)
-                                    Console.WriteLine($"{i+1}: человек по имени {full_name[i]} с должностью {post[i]}.");
+                                    Out(i, amount_of_files, full_name, post);
                             break;
                         }
                     case 3:
                         {
                             Console.WriteLine("Введите номер досье для удаления:");
                             isValidInt = int.TryParse(Console.ReadLine(), out chose);
+
                             if (isValidInt == true && chose-1 < amount_of_files && chose-1 >= 0 && amount_of_files > 1)
                             {
                                 for (int i = chose-1; i < amount_of_files-1; i++)
@@ -86,11 +82,7 @@ namespace TDM_Task_Number_06
                         {
                             if (amount_of_files > 0)
                             {
-                                Console.WriteLine("Введите искомое имя:");
-                                search_name = Console.ReadLine();
-                                for (int i = 0; i < amount_of_files; i++)
-                                    if (full_name[i] == search_name)
-                                        Console.WriteLine($"{i + 1}: человек по имени {full_name[i]} с должностью {post[i]}.");
+                                Search(amount_of_files,full_name,post);
                             }
 
                             break;
@@ -105,6 +97,35 @@ namespace TDM_Task_Number_06
                 
             }
             Console.ReadLine();
+        }
+        static void Enter(int amount_of_files, string[] full_name, string[] post)
+        {
+            Console.WriteLine("Введите имя:");
+            full_name[amount_of_files - 1] = Console.ReadLine();
+         
+            Console.WriteLine("Введите должность:");
+            post[amount_of_files - 1] = Console.ReadLine();
+            
+        }
+
+        static void Out(int i,int amount_of_files, string[] full_name, string[] post)
+        {
+            Console.WriteLine($"{i + 1}: человек по имени {full_name[i]} с должностью {post[i]}.");
+        }
+
+        static void Search(int amount_of_files, string[] full_name, string[] post)
+        {
+            string search_name;
+            Console.WriteLine("Введите искомое имя:");
+            search_name = Console.ReadLine();
+            for (int i = 0; i < amount_of_files; i++)
+                if (full_name[i] == search_name)
+                    Console.WriteLine($"{i + 1}: человек по имени {full_name[i]} с должностью {post[i]}.");
+        }
+
+        static void Delete()
+        {
+
         }
     }
 }

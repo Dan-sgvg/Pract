@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TDM_Task_Number_04", "TDM_T
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TDM_Task_Number_06", "TDM_Task_Number_06\TDM_Task_Number_06.csproj", "{166AB8F1-9975-4D25-9997-0265F90C3A1A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TDM_Task_Number_07", "TDM_Task_Number_07\TDM_Task_Number_07.csproj", "{05E6F04C-13E1-4999-8F67-1A82268AF071}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{166AB8F1-9975-4D25-9997-0265F90C3A1A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{166AB8F1-9975-4D25-9997-0265F90C3A1A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{166AB8F1-9975-4D25-9997-0265F90C3A1A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{05E6F04C-13E1-4999-8F67-1A82268AF071}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{05E6F04C-13E1-4999-8F67-1A82268AF071}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{05E6F04C-13E1-4999-8F67-1A82268AF071}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{05E6F04C-13E1-4999-8F67-1A82268AF071}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

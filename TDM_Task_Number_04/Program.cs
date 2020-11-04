@@ -33,7 +33,6 @@ namespace TDM_Task_Number_04
                         heal = 30;
                         break;
                     }
-
                 case 2:
                     {
                         boss_hp = 100 * 8;

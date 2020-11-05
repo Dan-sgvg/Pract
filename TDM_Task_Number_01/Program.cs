@@ -25,7 +25,7 @@ namespace TDM_Task_Number_01
 
             amount_of_gold = amount_of_gold - amount_of_crystals * crystal_cost;
 
-            if (amount_of_gold <= 0)
+            if (amount_of_gold < 0)
                 System.Console.WriteLine("You need more gold.");
             else
                 System.Console.WriteLine($"You have {amount_of_gold} gold\nand {amount_of_crystals} crystals.");

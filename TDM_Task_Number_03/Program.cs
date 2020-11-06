@@ -12,8 +12,10 @@ namespace TDM_Task_Number_03
         {
             string expression;
             int num_of_try = 0;
+            Console.WriteLine("Введите секретный пароль.");
             do
             {
+                Console.WriteLine($"Осатлось {3 - num_of_try} попытки.");
                 expression = Console.ReadLine();
                 num_of_try += 1;
                 if (expression.Equals("dr.mom"))

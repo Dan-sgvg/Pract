@@ -53,28 +53,8 @@ namespace TDM_Task_Number_06
                         }
                     case 3:
                         {
-                            Console.WriteLine("Введите номер досье для удаления:");
-                            isValidInt = int.TryParse(Console.ReadLine(), out chose);
-
-                            if (isValidInt == true && chose-1 < amount_of_files && chose-1 >= 0 && amount_of_files > 1)
-                            {
-                                for (int i = chose-1; i < amount_of_files-1; i++)
-                                {
-                                        full_name[i] = full_name[i + 1];
-                                        post[i] = post[i + 1];
-                                };
-
-                                amount_of_files--;
-                                Array.Resize<string>(ref full_name, amount_of_files);
-                                Array.Resize<string>(ref post, amount_of_files);
-                            }
-                            else
-                                if (isValidInt == true && chose - 1 == 0 && amount_of_files == 1)
-                                {
-                                    amount_of_files--;
-                                    Array.Resize<string>(ref full_name, amount_of_files);
-                                    Array.Resize<string>(ref post, amount_of_files);
-                                }
+                            Delete(full_name, post, amount_of_files);
+                            Console.WriteLine($"{amount_of_files}");
                             chose = 0;
                             break;
                         }
@@ -121,6 +101,33 @@ namespace TDM_Task_Number_06
             for (int i = 0; i < amount_of_files; i++)
                 if (full_name[i] == search_name)
                     Console.WriteLine($"{i + 1}: человек по имени {full_name[i]} с должностью {post[i]}.");
+        }
+
+        static void Delete(string[] full_name, string[] post, int amount_of_files)
+        {
+            Console.WriteLine("Введите номер досье для удаления:");
+            bool isValidInt = int.TryParse(Console.ReadLine(), out int chose);
+
+            if (isValidInt == true && chose - 1 < amount_of_files && chose - 1 >= 0 && amount_of_files > 1)
+            {
+                for (int i = chose - 1; i < amount_of_files - 1; i++)
+                {
+                    full_name[i] = full_name[i + 1];
+                    post[i] = post[i + 1];
+                };
+
+                amount_of_files--;
+                Array.Resize<string>(ref full_name, amount_of_files);
+                Array.Resize<string>(ref post, amount_of_files);
+            }
+            else
+                if (isValidInt == true && chose - 1 == 0 && amount_of_files == 1)
+            {
+                amount_of_files--;
+                Array.Resize<string>(ref full_name, amount_of_files);
+                Array.Resize<string>(ref post, amount_of_files);
+            }
+            Console.WriteLine($"{amount_of_files}");
         }
     }
 }

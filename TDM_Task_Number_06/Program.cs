@@ -101,7 +101,7 @@ namespace TDM_Task_Number_06
         static void Enter(int amount_of_files, string[] full_name, string[] post)
         {
             Console.WriteLine("Введите Фамилию:");
-            full_name[amount_of_files - 1] = Console.ReadLine();
+            full_name[amount_of_files - 1] = ": " + Console.ReadLine();
             Console.WriteLine("Введите Имя:");
             full_name[amount_of_files - 1] += " " + Console.ReadLine();
             Console.WriteLine("Введите Отчество:");
@@ -113,7 +113,7 @@ namespace TDM_Task_Number_06
 
         static void Out(int i,int amount_of_files, string[] full_name, string[] post)
         {
-            Console.WriteLine($"№{i + 1} ФИО: {full_name[i]}  Должность: {post[i]}.");
+            Console.WriteLine($"№{i + 1} ФИО{full_name[i]}  Должность: {post[i]}.");
         }
 
         static void Search(int amount_of_files, string[] full_name, string[] post)
@@ -122,8 +122,8 @@ namespace TDM_Task_Number_06
             Console.WriteLine("Введите фамилию искомого человека:");
             search_name = Console.ReadLine();
             for (int i = 0; i < amount_of_files; i++)
-                if (full_name[i].Contains(search_name))
-                    Console.WriteLine($"№{i + 1} ФИО: {full_name[i]}  Должность: {post[i]}.");
+                if (full_name[i].Contains(": " + search_name ))
+                    Console.WriteLine($"№{i + 1} ФИО{full_name[i]}  Должность: {post[i]}.");
         }
 
         static void Delete(string[] full_name, string[] post, int amount_of_files)

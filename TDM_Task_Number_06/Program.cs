@@ -16,22 +16,33 @@ namespace TDM_Task_Number_06
 
             string[] post = new string[1] {""};
             string[] full_name = new string[1] {""};
+            string[] name = new string[1] { "" };
             chose = 0;
             amount_of_files = 0;
-
             Console.WriteLine("Функция заполнения массивов:" +
-                "\n1- Добавить досье.  " +
-                "\n2- Вывести все досье." +
-                "\n3- Удалить досье. " +
-                "\n4- Поиск по фамилии. " +
-                "\nИная другая цифра или буква завершит программу.\n");
+                    "\n1- Добавить досье.  " +
+                    "\n2- Вывести все досье." +
+                    "\n3- Удалить досье. " +
+                    "\n4- Поиск по фамилии. " +
+                    "\nИная другая цифра или буква завершит программу.\n");
+
 
             while (chose != 5)
             {
+                
+                
+                
                 Console.ForegroundColor = ConsoleColor.Green;
                 Console.WriteLine("Введите цифру(1-4):");
                 Console.ResetColor();
                 bool isValidInt = int.TryParse(Console.ReadLine(), out chose);
+                Console.Clear();
+                Console.WriteLine("Функция заполнения массивов:" +
+                    "\n1- Добавить досье.  " +
+                    "\n2- Вывести все досье." +
+                    "\n3- Удалить досье. " +
+                    "\n4- Поиск по фамилии. " +
+                    "\nИная другая цифра или буква завершит программу.\n");
                 Console.WriteLine("");
 
                 switch (chose)
@@ -41,29 +52,39 @@ namespace TDM_Task_Number_06
                             amount_of_files ++;
                             Array.Resize<string>(ref full_name, amount_of_files);
                             Array.Resize<string>(ref post, amount_of_files);
-                            Enter(amount_of_files,full_name,post);
+                            Enter(amount_of_files,full_name,name,post);
                             break;
                         }
                     case 2:
                         {
                             if (amount_of_files > 0)
                                 for (int i = 0; i < amount_of_files; i++)
-                                    Out(i, amount_of_files, full_name, post);
+                                    Out(i, amount_of_files, full_name, post, name);
+                            else
+                                Console.WriteLine("Нет ни одного досье.");
                             break;
                         }
                     case 3:
                         {
-                            Delete(full_name, post, amount_of_files);
-                            Console.WriteLine($"{amount_of_files}");
+                            
+                            if (amount_of_files>0)
+                            {
+                                Delete(full_name, post, amount_of_files);
+                                amount_of_files--;
+                                Array.Resize<string>(ref full_name, amount_of_files);
+                                Array.Resize<string>(ref post, amount_of_files);
+                            }
+                            else
+                                Console.WriteLine("Нет ни одного досье.");
                             chose = 0;
                             break;
                         }
                     case 4:
                         {
                             if (amount_of_files > 0)
-                            {
-                                Search(amount_of_files,full_name,post);
-                            }
+                                Search(amount_of_files,full_name,post,name);
+                            else
+                                Console.WriteLine("Нет ни одного досье.");
 
                             break;
                         }  
@@ -78,29 +99,32 @@ namespace TDM_Task_Number_06
             }
             Console.ReadLine();
         }
-        static void Enter(int amount_of_files, string[] full_name, string[] post)
+        static void Enter(int amount_of_files, string[] full_name, string[] name, string[] post)
         {
-            Console.WriteLine("Введите имя:");
+            Console.WriteLine("Введите Фамилию:");
             full_name[amount_of_files - 1] = Console.ReadLine();
-         
+            Console.WriteLine("Введите Имя:");
+            name[amount_of_files - 1] = Console.ReadLine();
+            Console.WriteLine("Введите Отчество:");
+            name[amount_of_files - 1] += " " + Console.ReadLine();
             Console.WriteLine("Введите должность:");
             post[amount_of_files - 1] = Console.ReadLine();
             
         }
 
-        static void Out(int i,int amount_of_files, string[] full_name, string[] post)
+        static void Out(int i,int amount_of_files, string[] full_name, string[] post,string[] name)
         {
-            Console.WriteLine($"{i + 1}: человек по имени {full_name[i]} с должностью {post[i]}.");
+            Console.WriteLine($"№{i + 1} ФИО: {full_name[i]} {name[i]} с должностью {post[i]}.");
         }
 
-        static void Search(int amount_of_files, string[] full_name, string[] post)
+        static void Search(int amount_of_files, string[] full_name, string[] post, string[] name)
         {
             string search_name;
-            Console.WriteLine("Введите искомое имя:");
+            Console.WriteLine("Введите фамилию искомого человека:");
             search_name = Console.ReadLine();
             for (int i = 0; i < amount_of_files; i++)
                 if (full_name[i] == search_name)
-                    Console.WriteLine($"{i + 1}: человек по имени {full_name[i]} с должностью {post[i]}.");
+                    Console.WriteLine($"№{i + 1} ФИО: {full_name[i]} {name[i]} с должностью {post[i]}.");
         }
 
         static void Delete(string[] full_name, string[] post, int amount_of_files)
@@ -115,19 +139,8 @@ namespace TDM_Task_Number_06
                     full_name[i] = full_name[i + 1];
                     post[i] = post[i + 1];
                 };
-
-                amount_of_files--;
-                Array.Resize<string>(ref full_name, amount_of_files);
-                Array.Resize<string>(ref post, amount_of_files);
+                Console.WriteLine("Досье удалено.");
             }
-            else
-                if (isValidInt == true && chose - 1 == 0 && amount_of_files == 1)
-            {
-                amount_of_files--;
-                Array.Resize<string>(ref full_name, amount_of_files);
-                Array.Resize<string>(ref post, amount_of_files);
-            }
-            Console.WriteLine($"{amount_of_files}");
         }
     }
 }

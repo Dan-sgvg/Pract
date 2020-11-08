@@ -65,13 +65,22 @@ namespace TDM_Task_Number_06
                         }
                     case 3:
                         {
-                            
+
+                            if (amount_of_files == 1)
+                            {
+                                amount_of_files--;
+                                Array.Resize<string>(ref full_name, amount_of_files);
+                                Array.Resize<string>(ref post, amount_of_files);
+                                Console.WriteLine("Досье удалено.");
+                            }
+                            else
                             if (amount_of_files>0)
                             {
                                 Delete(full_name, post, amount_of_files);
                                 amount_of_files--;
                                 Array.Resize<string>(ref full_name, amount_of_files);
                                 Array.Resize<string>(ref post, amount_of_files);
+                                Console.WriteLine("Досье удалено.");
                             }
                             else
                                 Console.WriteLine("Нет ни одного досье.");
@@ -138,7 +147,7 @@ namespace TDM_Task_Number_06
                     full_name[i] = full_name[i + 1];
                     post[i] = post[i + 1];
                 };
-                Console.WriteLine("Досье удалено.");
+                
             }
         }
     }

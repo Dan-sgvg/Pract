@@ -23,7 +23,7 @@ namespace TDM_Task_Number_07
 
         static void Main(string[] args)
         {
-            Random rnd = new Random();
+            //Random rnd = new Random();
 
             Console.WriteLine("Введите количество элементов массива:");
             bool isValidInt = int.TryParse(Console.ReadLine(), out int amount_of_numbers);
@@ -31,15 +31,15 @@ namespace TDM_Task_Number_07
 
             for (int i = 0; i <= amount_of_numbers; i++)
             {
-                numbers.Add(rnd.Next(0, 10));
+                numbers.Add(i);
             }
-            Console.WriteLine();    
+            //Console.WriteLine();    
             Console.WriteLine(string.Join(" ", numbers));
             Shuffle(numbers);
 
-            Console.ForegroundColor = ConsoleColor.Blue;
+            //Console.ForegroundColor = ConsoleColor.Blue;
             Console.WriteLine(string.Join(" ", numbers));
-            Console.ResetColor();
+            //Console.ResetColor();
             Console.ReadKey();
         }
     }
